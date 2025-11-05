@@ -5,7 +5,7 @@ import { renderBlock } from "@/sections/Registry";
 
 export const revalidate = 60; // ISR: обновление каждые 60 сек
 
-type Params = { site: string; slug: string };
+type Params = { slug: string };
 
 // 👇 Это важно: SSG stage
 export async function generateStaticParams() {
@@ -16,9 +16,8 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: { params: Params }) {
-  const { slug, site } = params;
-
-  const entry = await getPage(slug, site);
+  const { slug } = params;
+  const entry = await getPage(slug);
   const page = mapPage(entry);
 
   if (!page) return <main className="p-10">Not found</main>;
