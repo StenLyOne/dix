@@ -11,6 +11,7 @@ export async function getPage(slug: string, site?: string) {
       "image_sreens_desktop",
     ],
     "sections.why-resolve-dtx": ["content", "cta", "cards"],
+    "sections.accordion": ["content", "cta", "cards"],
   };
 
   const buildPopulateParams = (map: Record<string, string[]>) =>
@@ -33,7 +34,6 @@ export async function getPage(slug: string, site?: string) {
     "page",
     params
   );
-
   console.log(json);
   return json.data?.[0] ?? null;
 }

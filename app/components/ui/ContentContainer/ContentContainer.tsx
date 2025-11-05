@@ -17,14 +17,19 @@ export function ContentContainer({
 }) {
   const { content, ctas, heading, sub_heading } = data;
   const headingSize = (heading ?? "").length > 50 ? "h2-medium" : "h2-large";
+  const paragraphSize = (heading ?? "").length > 100 ? "body-medium" : "h4";
   return (
     <div className={`${classContainer}`}>
       <div className="space-y-5 md:space-y-6">
-        {heading && <h2 className={`${headingSize} `}>{heading}</h2>}
+        {heading && (
+          <h2 className={`text-heading ${headingSize} `}>{heading}</h2>
+        )}
         {content && (
           <div>
             {content.map((p, i) => (
-              <p key={i}>{p.paragraph}</p>
+              <p className={`${paragraphSize}`} key={i}>
+                {p.paragraph}
+              </p>
             ))}
           </div>
         )}

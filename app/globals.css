@@ -42,7 +42,7 @@ h1 {
 }
 
 .h2-medium {
-  @apply font-heading text-[28px] md:text-[40px] leading-9 md:leading-12;
+  @apply font-heading font-medium text-[28px] md:text-[40px] leading-9 md:leading-12;
 }
 
 .h2-large {
@@ -51,6 +51,10 @@ h1 {
 
 .h3-medium {
   @apply font-heading  text-[24px] md:text-[32px] leading-8 md:leading-10 font-medium;
+}
+
+.h4 {
+  @apply font-heading text-[20px] md:text-[24px] leading-7 md:leading-8;
 }
 
 .body-small {

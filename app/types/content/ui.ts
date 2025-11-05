@@ -23,7 +23,16 @@ export type WhyResolveUI = {
   cards: CardUI[];
 };
 
-export type BlockUI = HeroUI | WhyResolveUI | null;
+export type AccordionUI = {
+  type: "accordion";
+  heading?: string;
+  subHeading?: string;
+  content: ContentUI[];
+  ctas?: ButtonUI[];
+  cards: CardUI[];
+};
+
+export type BlockUI = HeroUI | WhyResolveUI | AccordionUI | null;
 
 export interface PageUI {
   slug: string;

@@ -48,7 +48,16 @@ export type StrapiWhyResolve = {
   cards: StrapiCard[] | StrapiCard | null;
 };
 
-export type StrapiSection = StrapiHero | StrapiWhyResolve;
+export type StrapiAccordion = {
+  __component: "sections.accordion"; 
+  heading?: string | null;
+  sub_heading?: string | null;
+  content: StrapiContent[] | StrapiContent | null;
+  ctas?: StrapiButton[] | StrapiButton | null;
+  cards: StrapiCard[] | StrapiCard | null;
+};
+
+export type StrapiSection = StrapiHero | StrapiWhyResolve | StrapiAccordion
 
 export interface StrapiPageEntry {
   id: number;

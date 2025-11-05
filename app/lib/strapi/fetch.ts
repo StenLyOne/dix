@@ -22,6 +22,7 @@ export async function strapiFetch<T>(
     },
   });
 
+ 
   if (!res.ok) {
     const text = await res.text();
     console.error("❌ Strapi error:", res.status, res.statusText, text);

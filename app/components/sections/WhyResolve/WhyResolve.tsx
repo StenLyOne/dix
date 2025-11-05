@@ -4,7 +4,7 @@ import { WhyResolveUI } from "@types-content";
 
 export function WhyResolve({ data }: { data: WhyResolveUI }) {
   const { cards } = data;
-  console.log(data);
+
   return (
     <section>
       <div className="container space-y-25">
