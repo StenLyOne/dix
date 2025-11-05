@@ -16,13 +16,13 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: { params: Params }) {
-  const { slug, site } = await params;
+  const { slug, site } = params;
 
   const entry = await getPage(slug, site);
   const page = mapPage(entry);
 
   if (!page) return <main className="p-10">Not found</main>;
-  
+
   return (
     <div className="w-full">
       {page.sections?.map((b, i) => renderBlock(b, i))}
