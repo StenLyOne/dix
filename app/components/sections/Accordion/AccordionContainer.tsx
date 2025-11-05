@@ -1,4 +1,4 @@
-export function AccordionContainer(data) {
+export function AccordionContainer() {
   return (
     <div className="flex">
       <div></div>

@@ -15,8 +15,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function Page({ params }: { params: Params }) {
-  const { slug } = params;
+export default async function Page({ params }: { params: Promise<Params> }) {
+  const { slug } = await params;
   const entry = await getPage(slug);
   const page = mapPage(entry);
 
