@@ -2,6 +2,13 @@ import { MediaUI } from "@types-ui";
 
 type ButtonColor = "white" | "primary";
 type ButtonType = "default" | "arrow-right" | "arrow-bottom";
+type layouts =
+  | "layout-asthma"
+  | "layout-COPD"
+  | "layout-UK-guidance"
+  | "layout-lung-cancer"
+  | "layout-lung-ILD"
+  | "layout-default";
 
 export type StrapiButton = {
   label: string;
@@ -26,6 +33,17 @@ export type StrapiCard = {
   paragraph?: string | null;
   icon?: MediaUI | null;
   image?: MediaUI | null;
+  layout?: layouts | null;
+};
+
+export type StrapiCardLink = {
+  heading?: string | null;
+  paragraph?: string | null;
+  link: string | null;
+  label?: string | null;
+  image: MediaUI | null;
+  gradient_start: string | null;
+  gradient_end: string | null;
 };
 
 export type StrapiHero = {
@@ -43,21 +61,82 @@ export type StrapiWhyResolve = {
   __component: "sections.why-resolve-dtx";
   heading?: string | null;
   sub_heading?: string | null;
-  content: StrapiContent[] | StrapiContent | null;
+  content?: StrapiContent[] | StrapiContent | null;
   ctas?: StrapiButton[] | StrapiButton | null;
   cards: StrapiCard[] | StrapiCard | null;
 };
 
 export type StrapiAccordion = {
-  __component: "sections.accordion"; 
+  __component: "sections.accordion";
   heading?: string | null;
   sub_heading?: string | null;
-  content: StrapiContent[] | StrapiContent | null;
+  content?: StrapiContent[] | StrapiContent | null;
   ctas?: StrapiButton[] | StrapiButton | null;
   cards: StrapiCard[] | StrapiCard | null;
 };
 
-export type StrapiSection = StrapiHero | StrapiWhyResolve | StrapiAccordion
+export type StrapiFeatureSticky = {
+  __component: "sections.feature-sticky";
+  heading?: string | null;
+  sub_heading?: string | null;
+  content?: StrapiContent[] | StrapiContent | null;
+  ctas?: StrapiButton[] | StrapiButton | null;
+  cards: StrapiCard[] | StrapiCard | null;
+};
+
+export type StrapiFeatureScrollShowCase = {
+  __component: "sections.feature-scroll-showcase";
+  heading?: string | null;
+  sub_heading?: string | null;
+  content?: StrapiContent[] | StrapiContent | null;
+  ctas?: StrapiButton[] | StrapiButton | null;
+  cards: StrapiCard[] | StrapiCard | null;
+};
+
+export type StrapiSolutions = {
+  __component: "sections.solutions";
+  heading?: string | null;
+  sub_headong?: string | null;
+  content?: StrapiContent[] | StrapiContent | null;
+  ctas?: StrapiButton[] | StrapiButton | null;
+  cards: StrapiCardLink[] | StrapiCardLink | null;
+};
+
+export type StrapiCta = {
+  __component: "sections.cta";
+  heading?: string | null;
+  content?: StrapiContent[] | StrapiContent | null;
+  ctas: StrapiButton[] | StrapiButton | null;
+};
+
+export type StrapiNavigation = {
+  __component: "sections.navigation";
+  heading?: string | null;
+  sub_heading?: string | null;
+  content?: StrapiContent[] | StrapiContent | null;
+  nav_to_sections: StrapiCardLink[] | StrapiCardLink | null;
+};
+
+export type StrapiFeatureTabs = {
+  __component: "sections.feature-tabs";
+  heading?: string | null;
+  sub_heading?: string | null;
+  content?: StrapiContent[] | StrapiContent | null;
+  cards: StrapiCard[] | StrapiCard | null;
+};
+
+
+
+export type StrapiSection =
+  | StrapiHero
+  | StrapiWhyResolve
+  | StrapiAccordion
+  | StrapiFeatureSticky
+  | StrapiFeatureScrollShowCase
+  | StrapiSolutions
+  | StrapiCta
+  | StrapiFeatureTabs
+  | StrapiNavigation;
 
 export interface StrapiPageEntry {
   id: number;

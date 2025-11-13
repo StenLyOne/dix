@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
       { protocol: "http", hostname: "localhost", port: "1337" },
       { protocol: "https", hostname: "*.strapiapp.com" },
     ],
-    minimumCacheTTL: 31536000,
+    minimumCacheTTL: 0,
     formats: ["image/webp", "image/avif"],
   },
 

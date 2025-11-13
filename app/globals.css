@@ -23,11 +23,33 @@
   --color-primary-000: #0a2a73;
 
   --color-gray-50: #f7f7f9;
-  --color-gray-100: #f7f7f9;
-  --color-gray-200: #f7f7f9;
-  --color-gray-300: #f7f7f9;
-  --color-gray-400: #f7f7f9;
-  --color-gray-500: #f7f7f9;
+  --color-gray-100: #e7e8eb;
+  --color-gray-200: #d5d7dd;
+  --color-gray-300: #b9bcc5;
+  --color-gray-400: #a1a5b1;
+  --color-gray-500: #8a909d;
+
+  --shadow-classic: 0px 24px 24px -12px rgba(87, 141, 235, 0.08),
+    0px 12px 12px -6px rgba(14, 51, 126, 0.08),
+    0px 6px 6px -3px rgba(42, 50, 70, 0.08),
+    0px 3px 3px -1.5px rgba(42, 49, 70, 0.08),
+    0px 1px 1px -0.5px rgba(42, 46, 70, 0.08),
+    0px 0px 0px 1px rgba(14, 70, 126, 0.08);
+  --gradient-brand: linear-gradient(90deg, #1d5ddd 0%, #3da7dc 100%);
+  --shadow-brand: radial-gradient(
+    circle at 70% -10%,
+    #2570dd 0%,
+    #2a65bb 17%,
+    #2c5faa 33%,
+    #2f60a7 50%,
+    #305891 65%,
+    #325281 83%,
+    #2e476b 100%
+  );
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -46,7 +68,7 @@ h1 {
 }
 
 .h2-large {
-  @apply font-heading text-[36px] md:text-[60px] leading-11 md:leading-[70px] font-medium;
+  @apply font-heading text-[32px] md:text-[60px] leading-10 md:leading-[70px] font-medium;
 }
 
 .h3-medium {
@@ -77,13 +99,30 @@ h1 {
   @apply bg-[#87CAE7]/20 rounded-[40px] backdrop-blur-2xl;
 }
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.border-gradient {
+  border: 2px solid transparent;
+  background: linear-gradient(to right, #01809c, #12d7be) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
 .shadow-button-hero {
   box-shadow: 0px 30px 66px rgba(0, 0, 0, 0.2),
     0px 121px 121px rgba(0, 0, 0, 0.1), 0px 272px 163px rgba(0, 0, 0, 0.1),
     0px 483px 193px rgba(0, 0, 0, 0.05), 0px 754px 211px rgba(0, 0, 0, 0.01);
 }
 
-a#arrow-right::after {
+a#arrow-right-white::after {
   content: "";
   position: absolute;
   right: 8px;
@@ -95,7 +134,7 @@ a#arrow-right::after {
   transition: all 0.2s ease-in-out;
 }
 
-a#arrow-right:hover::after {
+a#arrow-right-white:hover::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -106,7 +145,7 @@ a#arrow-right:hover::after {
   border-radius: 10%;
 }
 
-a#arrow-bottom::after {
+a#arrow-bottom-white::after {
   content: "";
   position: absolute;
   right: 8px;
@@ -118,7 +157,7 @@ a#arrow-bottom::after {
   transition: all 0.2s ease-in-out;
 }
 
-a#arrow-bottom:hover::after {
+a#arrow-bottom-white:hover::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -127,4 +166,70 @@ a#arrow-bottom:hover::after {
   background-color: var(--color-primary);
   z-index: 0;
   border-radius: 10%;
+  border-radius: 1px solid var(--color-primary);
+}
+
+a#arrow-right-primary::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  background-color: var(--color-white);
+  z-index: 0;
+  border-radius: 100%;
+  width: 48px;
+  height: 48px;
+  transition: all 0.2s ease-in-out;
+}
+
+a#arrow-right-primary:hover::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: 0px;
+  background-color: var(--color-white);
+  z-index: 0;
+  border-radius: 10%;
+}
+
+a#arrow-bottom-primary::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  background-color: var(--color-white);
+  z-index: 0;
+  border-radius: 100%;
+  width: 48px;
+  height: 48px;
+  transition: all 0.2s ease-in-out;
+}
+
+a#arrow-bottom-primary:hover::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: 0px;
+  background-color: var(--color-white);
+  z-index: 0;
+  border-radius: 10%;
+}
+
+.title-grad {
+  /* верхний слой — радиальный градиент с общей «прозрачностью» 40% */
+  background-image: radial-gradient(
+      130% 170% at 18% 150%,
+      rgba(20, 183, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.4) 100%
+    ),
+    /* нижний слой — сплошной белый */ linear-gradient(#fff, #fff);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: 0 0;
+
+  /* клип в контур текста */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent; /* для Safari */
 }

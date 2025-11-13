@@ -6,11 +6,14 @@ export function Card({ data }: { data: CardUI }) {
   return (
     <div className="w-full flex flex-col-reverse md:flex-row justify-between items-center gap-6">
       <div className="w-full md:w-[44%] space-y-3">
-        <h3 className="h2-medium text-heading">{heading}</h3>
-        <p className="text-black">{paragraph}</p>
+        <h3 className="h2-medium text-heading text-balance">{heading}</h3>
+        <p className="text-black text-balance">{paragraph}</p>
       </div>
       {image && (
-        <div className="relative h-[400px] md:h-[600px] w-full md:w-[61%] rounded-[20px] overflow-hidden">
+        <div
+          className="relative h-[400px] md:h-[600px] w-full md:w-[61%] rounded-[20px] overflow-hidden bg-gradient"
+          style={{ background: "var(--shadow-brand)" }}
+        >
           <Image
             src={image?.url ?? ""}
             alt={image?.alt ?? "seo-alt"}

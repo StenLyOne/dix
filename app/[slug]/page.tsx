@@ -1,9 +1,7 @@
 import { getPage } from "app/lib/strapi/getPage";
 import { getAllRoutes } from "app/lib/strapi/getAllRoutes";
 import { mapPage } from "app/lib/mappers/mapPage";
-import { renderBlock } from "@/sections/Registry";
-
-export const revalidate = 60; // ISR: обновление каждые 60 сек
+import { RenderBlocks } from "@/sections/Registry";
 
 type Params = { slug: string };
 
@@ -23,9 +21,8 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   if (!page) return <main className="p-10">Not found</main>;
 
   return (
-    <div className="w-full">
-      {page.sections?.map((b, i) => renderBlock(b, i))}
-      {page.title && <h1>{page.title}</h1>}
-    </div>
+    <>
+      <RenderBlocks sections={page.sections} />
+    </>
   );
 }

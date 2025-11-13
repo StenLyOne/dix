@@ -22,10 +22,11 @@
     "paths": {
       "@/*": ["./app/components/*"],
       "@lib/*": ["lib/*"],
-      "@sect/*": ["./app/components/sections/*"],
+      "@sect/*": ["./app/components/sections/index.ts"],
       "@types-ui": ["app/types/ui/index.ts"],
       "@types-content": ["app/types/content/index.ts"],
-      "@hooks/*": ["app/hooks/*"]
+      "@hooks/*": ["app/hooks/*"],
+      "@motion": ["app/lib/framer-motion/index.ts"]
     }
   },
   "include": [
@@ -35,6 +36,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "app/components/sections/FeatureTabs/Layouts"  ],
   "exclude": ["node_modules"]
 }

@@ -1,10 +1,14 @@
 import type {
+  column_links,
+  LinksUI,
   StrapiButton,
   StrapiCard,
+  StrapiCardLink,
   StrapiContent,
   StrapiMedia,
+  StrapLinks,
 } from "@types-content";
-import type { ContentUI, CardUI, MediaUI } from "@types-ui";
+import type { ContentUI, CardUI, MediaUI, CardLinkUI } from "@types-ui";
 import type { ButtonUI } from "@types-ui";
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
@@ -62,5 +66,42 @@ export function mapCards(
     paragraph: txt(c.paragraph),
     icon: mapMedia(c.icon),
     image: mapMedia(c.image),
+    layout: c.layout ?? "layout-default",
+  }));
+}
+
+export function mapCardsLink(
+  v: StrapiCardLink | StrapiCardLink[] | null | undefined
+): CardLinkUI[] {
+  return asArray(v).map((c) => ({
+    heading: txt(c.heading),
+    paragraph: txt(c.paragraph),
+    link: txt(c.link),
+    label: txt(c.label),
+    image: mapMedia(c.image),
+    gradientStart: txt(c.gradient_start),
+    gradientEnd: txt(c.gradient_end),
+  }));
+}
+
+export function mapLinks(
+  v: StrapLinks | StrapLinks[] | null | undefined
+): LinksUI[] {
+  console.log(v);
+  return asArray(v).map((c) => ({
+    label: txt(c.label),
+    link: txt(c.link),
+  }));
+}
+
+export function mapColumnLinks(
+  v: column_links[] | column_links | null | undefined
+): column_links[] {
+  return asArray(v).map((c) => ({
+    heading: txt(c.heading),
+    nav_link: asArray(c.nav_link).map((c) => ({
+      label: txt(c.label),
+      link: txt(c.link),
+    })),
   }));
 }

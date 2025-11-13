@@ -8,7 +8,13 @@ export function Button({ data }: { data: ButtonUI }) {
 
   const external = getLinkKind(link);
 
-  const baseClass = `relative group cursor-pointer w-full md:w-max inline-flex items-center gap-4 uppercase text-[16px] md:text-[20px] font-bold transition-opacity duration-200  overflow-hidden ${
+  const baseClass = `relative border-transparent border-1 ${
+    color === "primary" ? "hover:border-primary" : "hover:border-white"
+  } ${
+    type === "default" && "white"
+      ? "hover:bg-primary  transition-colors duration-300"
+      : "hover:bg-white   transition-colors  duration-300"
+  } group cursor-pointer w-full md:w-max inline-flex items-center gap-4 uppercase text-[16px] md:text-[20px] font-bold  overflow-hidden ${
     type === "default"
       ? "px-15 py-4.25 justify-center"
       : "py-2 pl-5 pr-2 justify-between"
@@ -116,7 +122,7 @@ export function Button({ data }: { data: ButtonUI }) {
 
   return external === "external" ? (
     <a
-      id={type}
+      id={`${type}-${color}`}
       className={classes}
       href={link}
       target="_blank"
@@ -125,11 +131,11 @@ export function Button({ data }: { data: ButtonUI }) {
       {content}
     </a>
   ) : external === "internal" ? (
-    <Link href={link} className={classes} id={type}>
+    <Link href={link} className={classes} id={`${type}-${color}`}>
       {content}
     </Link>
   ) : (
-    <a href={link} id={type} className={classes}>
+    <a href={link} id={`${type}-${color}`} className={classes}>
       {content}
     </a>
   );

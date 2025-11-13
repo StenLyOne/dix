@@ -12,6 +12,12 @@ export async function getPage(slug: string, site?: string) {
     ],
     "sections.why-resolve-dtx": ["content", "cta", "cards"],
     "sections.accordion": ["content", "ctas", "cards"],
+    "sections.feature-sticky": ["content", "ctas", "cards"],
+    "sections.feature-scroll-showcase": ["content", "ctas", "cards"],
+    "sections.solutions": ["ctas", "content", "cards"],
+    "sections.cta": ["ctas", "content"],
+    "sections.navigation": ["content", "nav_to_sections"],
+    "sections.feature-tabs": ["content", "ctas", "cards"],
   };
 
   const buildPopulateParams = (map: Record<string, string[]>) =>

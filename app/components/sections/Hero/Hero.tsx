@@ -21,7 +21,7 @@ export function Hero({ data }: { data: HeroUI }) {
           image_sreens_desktop?.url
             ? "lg:h-[1390px] "
             : "h-auto flex items-center justify-center pb-48"
-        } overflow-hidden rounded-b-[20px] lg:rounded-[20px] space-y-10 lg:space-y-32`}
+        } overflow-hidden rounded-b-[20px] lg:rounded-[40px] space-y-10 lg:space-y-32`}
       >
         <div>
           {sub_heading && (
@@ -31,7 +31,7 @@ export function Hero({ data }: { data: HeroUI }) {
           )}
           <div className="max-w-[900px] text-center mx-auto space-y-7">
             {heading && (
-              <h1 className="text-white">
+              <h1 className="title-grad ">
                 Digital Therapeutic for Chronic Cough
               </h1>
             )}
